@@ -18,7 +18,7 @@ const Sidebar = () => {
     "Logout",
   ];
   return (
-    <div className="flex flex-col bg-indigo-600 items-stretch text-left py-12">
+    <div className="flex flex-col bg-indigo-600 items-stretch text-left py-12 rounded-3xl">
       <h1 className="self-center text-4xl text-white opacity-70 mb-10">Logo</h1>
       {sidebarItems.map((item, i) => (
         <h1

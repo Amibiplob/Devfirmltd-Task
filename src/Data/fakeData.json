@@ -1,0 +1,102 @@
+[
+  {
+    "InvoiceNo": 1,
+    "Trip": 1,
+    "InvDate": "11/27/2022",
+    "InvAmount": "$6.48",
+    "BalDue": "$1.79",
+    "PaymentMethod": "jcb",
+    "DueDate": "3/4/2023",
+    "Status": "Cancelled"
+  },
+  {
+    "InvoiceNo": 2,
+    "Trip": 2,
+    "InvDate": "3/2/2023",
+    "InvAmount": "$4.45",
+    "BalDue": "$2.83",
+    "PaymentMethod": "jcb",
+    "DueDate": "3/27/2023",
+    "Status": "Unpaid"
+  },
+  {
+    "InvoiceNo": 3,
+    "Trip": 3,
+    "InvDate": "3/5/2023",
+    "InvAmount": "$5.92",
+    "BalDue": "$5.30",
+    "PaymentMethod": "visa",
+    "DueDate": "8/9/2023",
+    "Status": "Unpaid"
+  },
+  {
+    "InvoiceNo": 4,
+    "Trip": 4,
+    "InvDate": "3/30/2023",
+    "InvAmount": "$0.71",
+    "BalDue": "$1.25",
+    "PaymentMethod": "laser",
+    "DueDate": "11/15/2022",
+    "Status": "Paid"
+  },
+  {
+    "InvoiceNo": 5,
+    "Trip": 5,
+    "InvDate": "9/30/2022",
+    "InvAmount": "$6.78",
+    "BalDue": "$4.36",
+    "PaymentMethod": "jcb",
+    "DueDate": "1/21/2023",
+    "Status": "Cancelled"
+  },
+  {
+    "InvoiceNo": 6,
+    "Trip": 6,
+    "InvDate": "1/18/2023",
+    "InvAmount": "$5.87",
+    "BalDue": "$8.13",
+    "PaymentMethod": "laser",
+    "DueDate": "8/8/2023",
+    "Status": "Paid"
+  },
+  {
+    "InvoiceNo": 7,
+    "Trip": 7,
+    "InvDate": "8/27/2023",
+    "InvAmount": "$4.10",
+    "BalDue": "$5.54",
+    "PaymentMethod": "bankcard",
+    "DueDate": "2/16/2023",
+    "Status": "Unpaid"
+  },
+  {
+    "InvoiceNo": 8,
+    "Trip": 8,
+    "InvDate": "12/11/2022",
+    "InvAmount": "$5.13",
+    "BalDue": "$3.94",
+    "PaymentMethod": "jcb",
+    "DueDate": "7/8/2023",
+    "Status": "Paid"
+  },
+  {
+    "InvoiceNo": 9,
+    "Trip": 9,
+    "InvDate": "5/17/2023",
+    "InvAmount": "$8.43",
+    "BalDue": "$3.03",
+    "PaymentMethod": "diners-club-enroute",
+    "DueDate": "1/29/2023",
+    "Status": "Cancelled"
+  },
+  {
+    "InvoiceNo": 10,
+    "Trip": 10,
+    "InvDate": "11/8/2022",
+    "InvAmount": "$0.96",
+    "BalDue": "$5.94",
+    "PaymentMethod": "china-unionpay",
+    "DueDate": "7/5/2023",
+    "Status": "Unpaid"
+  }
+]
