@@ -1,10 +1,10 @@
+import { headers } from "next/dist/client/components/headers";
 import React from "react";
-const getData = async () => {
-  let data = await fetch("http://localhost:3000/submit-form");
-  return await data.json();
-};
 const Invoices = async () => {
-  const fakeData = await getData();
+  const host = headers().get("host");
+  const protocal = process?.env.NODE_ENV === "development" ? "http" : "https";
+  const data = await fetch(`${protocal}://${host}/submit-form`);
+  const fakeData = await data.json();
   // console.log(fakeData);
   return (
     <div>

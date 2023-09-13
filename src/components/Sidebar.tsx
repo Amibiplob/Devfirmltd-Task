@@ -23,7 +23,7 @@ const Sidebar = () => {
       {sidebarItems.map((item, i) => (
         <h1
           key={i}
-          className="flex items-center pl-10 rounded-l-full self-end text-white opacity-70 w-3/4 h-14 hover:bg-indigo-400"
+          className="flex items-center pl-5 lg:pl-10 rounded-l-full lg:self-end text-white opacity-70 lg:w-3/4 h-14 hover:bg-indigo-400"
         >
           {item}
         </h1>
