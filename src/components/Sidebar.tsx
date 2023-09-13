@@ -2,10 +2,9 @@ import React from "react";
 
 const Sidebar = () => {
   const sidebarItems = [
-    "Logo",
     "Dashboard",
     "Reservations",
-    "trips",
+    "Trips",
     "Invoices",
     "Planes",
     "Amenities",
@@ -19,11 +18,15 @@ const Sidebar = () => {
     "Logout",
   ];
   return (
-    <div>
+    <div className="flex flex-col bg-indigo-600 items-stretch text-left py-12">
+      <h1 className="self-center text-4xl text-white opacity-70 mb-10">Logo</h1>
       {sidebarItems.map((item, i) => (
-        <div key={i}>
-          <h1 className="text-4xl">{item}</h1>
-        </div>
+        <h1
+          key={i}
+          className="flex items-center pl-10 rounded-l-full self-end text-white opacity-70 w-3/4 h-14 hover:bg-indigo-400"
+        >
+          {item}
+        </h1>
       ))}
     </div>
   );
