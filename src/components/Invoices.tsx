@@ -1,4 +1,5 @@
 import { headers } from "next/dist/client/components/headers";
+import Link from "next/link";
 import React from "react";
 const Invoices = async () => {
   const host = headers().get("host");
@@ -13,7 +14,7 @@ const Invoices = async () => {
           <h1 className="text-2xl font-bold">Invoices</h1>
           <p className="opacity-60 mt-4">Invoices</p>
         </div>
-        <button className="bg-indigo-600 rounded-full py-4 px-14 text-white flex gap-2 items-center font-bold">
+        <Link href="/add-invoice" className="bg-indigo-600 rounded-full py-4 px-14 text-white flex gap-2 items-center font-bold">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -29,7 +30,7 @@ const Invoices = async () => {
             />
           </svg>
           <h1>Add Invoice</h1>
-        </button>
+        </Link>
       </div>
 
       <div className="overflow-x-auto">
