@@ -1,42 +1,64 @@
 import React from "react";
+import InvoicePrint from "./InvoicePrint";
 
 const AddInvoice = () => {
   return (
     <div>
-      <div className="my-9">
+      <div className="my-6">
         <h1 className="text-2xl font-bold">Invoices</h1>
         <p className="opacity-60 mt-4">Invoices / New Invoice</p>
       </div>
-      <div className="grid grid-cols-4 gap-x-6 px-7 py-9 rounded-xl bg-white ">
-        <div className="col-span-2">
-          <label className="font-bold">Select</label>
-          <select className="w-full px-4 py-5 mt-5 rounded-full border-2 border-black opacity-40">
-            <option value="" selected disabled>
-              Select Client
-            </option>
-            <option value="01">01</option>
-            <option value="02">02</option>
-            <option value="03">03</option>
-            <option value="04">04</option>
-            <option value="05">05</option>
-            <option value="06">06</option>
-            <option value="07">07</option>
-            <option value="08">08</option>
-            <option value="09">09</option>
-            <option value="10">10</option>
-          </select>
-        </div>
-        <div>
-          <label className="font-bold">Invoice Date</label>
-          <input
-            type="date"
-            className="w-full px-4 py-5 mt-5 rounded-full border-2 border-black opacity-40"
-          />
+      <div className="flex justify-between rounded-xl bg-white px-7 py-9">
+        <div className="grid grid-cols-3 gap-6">
+          <div className="col-span-2">
+            <label className="font-bold">Select</label>
+            <select className="w-full px-4 py-4 mt-5 rounded-full border-2 border-black opacity-40">
+              <option value="" selected disabled>
+                Select Client
+              </option>
+              <option value="01">01</option>
+              <option value="02">02</option>
+              <option value="03">03</option>
+              <option value="04">04</option>
+              <option value="05">05</option>
+              <option value="06">06</option>
+              <option value="07">07</option>
+              <option value="08">08</option>
+              <option value="09">09</option>
+              <option value="10">10</option>
+            </select>
+          </div>
+          <div>
+            <label className="font-bold">Invoice Date</label>
+            <input
+              type="date"
+              className="w-full px-4 py-4 mt-5 rounded-full border-2 border-black opacity-40"
+            />
+          </div>
+
+          <div>
+            <label className="font-bold">Trip</label>
+            <select className="w-full px-4 py-4 mt-5 rounded-full border-2 border-black opacity-40">
+              <option value="" selected disabled>
+                Select Trip
+              </option>
+              <option value="01">01</option>
+              <option value="02">02</option>
+              <option value="03">03</option>
+              <option value="04">04</option>
+              <option value="05">05</option>
+              <option value="06">06</option>
+              <option value="07">07</option>
+              <option value="08">08</option>
+              <option value="09">09</option>
+              <option value="10">10</option>
+            </select>
+          </div>
         </div>
         <div>
           <label className="font-bold">Plane Image</label>
           <div className="flex justify-center items-center mt-5 border-2 border-black border-dashed rounded-md h-32">
-            <label htmlFor="upload" className="flex gap-3">
+            <label htmlFor="upload" className="flex gap-3 p-6">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -57,26 +79,9 @@ const AddInvoice = () => {
             <input hidden type="file" id="upload" />
           </div>
         </div>
-        <div>
-          <label className="font-bold">Trip</label>
-          <select className="w-full px-4 py-5 mt-5 rounded-full border-2 border-black opacity-40">
-            <option value="" selected disabled>
-              Select Trip
-            </option>
-            <option value="01">01</option>
-            <option value="02">02</option>
-            <option value="03">03</option>
-            <option value="04">04</option>
-            <option value="05">05</option>
-            <option value="06">06</option>
-            <option value="07">07</option>
-            <option value="08">08</option>
-            <option value="09">09</option>
-            <option value="10">10</option>
-          </select>
-        </div>
       </div>
-      <div className="bg-white mt-5 py-9">
+
+      <div className="bg-white my-5 py-9 rounded-xl">
         <div className="grid grid-cols-3 gap-x-40 mb-3 px-7">
           <div className="grid grid-cols-3 gap-6 col-span-2 font-bold">
             <h1>Product Type</h1>
@@ -89,7 +94,7 @@ const AddInvoice = () => {
         <div className="grid grid-cols-3 gap-x-40 mb-3 px-7">
           <div className="grid grid-cols-3 gap-6 col-span-2 font-bold">
             <div className="">
-              <select className="w-full px-4 py-5 mt-5 rounded-xl border-2 border-black opacity-40">
+              <select className="w-full px-4 py-4 mt-5 rounded-xl border-2 border-black opacity-40">
                 <option value="" selected disabled>
                   Select Client
                 </option>
@@ -106,7 +111,7 @@ const AddInvoice = () => {
               </select>
             </div>
             <div className="">
-              <select className="w-full px-4 py-5 mt-5 rounded-xl border-2 border-black opacity-40">
+              <select className="w-full px-4 py-4 mt-5 rounded-xl border-2 border-black opacity-40">
                 <option value="" selected disabled>
                   Select Client
                 </option>
@@ -124,7 +129,7 @@ const AddInvoice = () => {
             </div>
             <div className="">
               <input
-                className="w-full px-4 py-5 mt-5 rounded-xl border-2 border-black opacity-40"
+                className="w-full px-4 py-4 mt-5 rounded-xl border-2 border-black opacity-40"
                 type="text"
               />
             </div>
@@ -136,16 +141,14 @@ const AddInvoice = () => {
             />
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              fill="none"
               viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="w-16 h-16 text-red-500 bg-red-100 rounded-lg p-1 mt-5"
+              fill="currentColor"
+              className="w-16 h-16 text-red-500 bg-red-100 rounded-lg p-2 mt-5"
             >
               <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0"
+                fillRule="evenodd"
+                d="M16.5 4.478v.227a48.816 48.816 0 013.878.512.75.75 0 11-.256 1.478l-.209-.035-1.005 13.07a3 3 0 01-2.991 2.77H8.084a3 3 0 01-2.991-2.77L4.087 6.66l-.209.035a.75.75 0 01-.256-1.478A48.567 48.567 0 017.5 4.705v-.227c0-1.564 1.213-2.9 2.816-2.951a52.662 52.662 0 013.369 0c1.603.051 2.815 1.387 2.815 2.951zm-6.136-1.452a51.196 51.196 0 013.273 0C14.39 3.05 15 3.684 15 4.478v.113a49.488 49.488 0 00-6 0v-.113c0-.794.609-1.428 1.364-1.452zm-.355 5.945a.75.75 0 10-1.5.058l.347 9a.75.75 0 101.499-.058l-.346-9zm5.48.058a.75.75 0 10-1.498-.058l-.347 9a.75.75 0 001.5.058l.345-9z"
+                clipRule="evenodd"
               />
             </svg>
           </div>
@@ -182,9 +185,13 @@ const AddInvoice = () => {
         <hr />
         <div className="flex justify-between gap-5 items-center mb-3 pl-7 mr-20 my-9">
           <div className="flex justify-between gap-6 font-bold w-1/2">
-            <button className="bg-indigo-600 px-14 py-5 rounded-full text-white">Save</button>
-            <button className="text-black opacity-70 border-2 px-14 py-5 rounded-full">Cancel</button>
-            <button className="bg-indigo-600 px-14 py-5 rounded-full text-white">Download Invoice</button>
+            <button className="bg-indigo-600 px-14 py-3 rounded-full text-white">
+              Save
+            </button>
+            <button className="text-black opacity-70 border-2 px-14 py-3 rounded-full">
+              Cancel
+            </button>
+          <InvoicePrint/>
           </div>
           <div className="flex w-52 text-right font-bold text-indigo-600">
             <h1 className="w-1/2">Total :</h1>

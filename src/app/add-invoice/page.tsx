@@ -5,7 +5,7 @@ import React from 'react';
 
 const page = () => {
     return (
-      <div className="flex bg-slate-100 gap-7">
+      <div className="flex bg-slate-100 gap-7 m-4">
         <div className="basis-3/12">
           <Sidebar />
         </div>
