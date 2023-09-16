@@ -3,7 +3,6 @@
 const InvoicePrint = () => {
      const print = () => {
          window.print();
-         console.log(window)
      };
     return (
       <button

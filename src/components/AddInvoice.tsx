@@ -1,5 +1,6 @@
 import React from "react";
 import InvoicePrint from "./InvoicePrint";
+import UploadImage from "./UploadImage";
 
 const AddInvoice = () => {
   return (
@@ -55,30 +56,7 @@ const AddInvoice = () => {
             </select>
           </div>
         </div>
-        <div>
-          <label className="font-bold">Plane Image</label>
-          <div className="flex justify-center items-center mt-5 border-2 border-black border-dashed rounded-md h-32">
-            <label htmlFor="upload" className="flex gap-3 p-6">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="w-6 h-6"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5"
-                />
-              </svg>
-
-              <p>Upload Plane Image</p>
-            </label>
-            <input hidden type="file" id="upload" />
-          </div>
-        </div>
+        <UploadImage />
       </div>
 
       <div className="bg-white my-5 py-9 rounded-xl">
@@ -191,7 +169,7 @@ const AddInvoice = () => {
             <button className="text-black opacity-70 border-2 px-14 py-3 rounded-full">
               Cancel
             </button>
-          <InvoicePrint/>
+            <InvoicePrint />
           </div>
           <div className="flex w-52 text-right font-bold text-indigo-600">
             <h1 className="w-1/2">Total :</h1>
