@@ -3,6 +3,11 @@ import InvoicePrint from "./InvoicePrint";
 import UploadImage from "./UploadImage";
 
 const AddInvoice = () => {
+  const date = new Date();
+  const day = date.getDate();
+  const month = date.getMonth()+1;
+  const year = date.getFullYear();
+  const currentDate = `${year}-${'0'+month}-${day}`;
   return (
     <div>
       <div className="my-6">
@@ -14,7 +19,7 @@ const AddInvoice = () => {
           <div className="col-span-2">
             <label className="font-bold">Select</label>
             <select className="w-full px-4 py-4 mt-5 rounded-full border-2 border-black opacity-40">
-              <option value="" selected disabled>
+              <option selected disabled>
                 Select Client
               </option>
               <option value="01">01</option>
@@ -32,7 +37,7 @@ const AddInvoice = () => {
           <div>
             <label className="font-bold">Invoice Date</label>
             <input
-              type="date"
+              type="date" defaultValue={currentDate}
               className="w-full px-4 py-4 mt-5 rounded-full border-2 border-black opacity-40"
             />
           </div>
@@ -40,19 +45,19 @@ const AddInvoice = () => {
           <div>
             <label className="font-bold">Trip</label>
             <select className="w-full px-4 py-4 mt-5 rounded-full border-2 border-black opacity-40">
-              <option value="" selected disabled>
+              <option selected disabled>
                 Select Trip
               </option>
-              <option value="01">01</option>
-              <option value="02">02</option>
-              <option value="03">03</option>
-              <option value="04">04</option>
-              <option value="05">05</option>
-              <option value="06">06</option>
-              <option value="07">07</option>
-              <option value="08">08</option>
-              <option value="09">09</option>
-              <option value="10">10</option>
+              <option value="T10">T10</option>
+              <option value="T20">T20</option>
+              <option value="T30">T30</option>
+              <option value="T40">T40</option>
+              <option value="T50">T50</option>
+              <option value="T60">T60</option>
+              <option value="T70">T70</option>
+              <option value="T80">T80</option>
+              <option value="T90">T90</option>
+              <option value="T100">T100</option>
             </select>
           </div>
         </div>
@@ -73,7 +78,7 @@ const AddInvoice = () => {
           <div className="grid grid-cols-3 gap-6 col-span-2 font-bold">
             <div className="">
               <select className="w-full px-4 py-4 mt-5 rounded-xl border-2 border-black opacity-40">
-                <option value="" selected disabled>
+                <option selected disabled>
                   Select Client
                 </option>
                 <option value="01">01</option>
@@ -90,7 +95,7 @@ const AddInvoice = () => {
             </div>
             <div className="">
               <select className="w-full px-4 py-4 mt-5 rounded-xl border-2 border-black opacity-40">
-                <option value="" selected disabled>
+                <option selected disabled>
                   Select Client
                 </option>
                 <option value="01">01</option>

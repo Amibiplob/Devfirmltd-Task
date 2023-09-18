@@ -7,7 +7,7 @@ const UploadImage = () => {
   const uploadImage = (e: any) => {
     const reader = new FileReader();
     reader.onload = function (e) {
-      setImg(e.target.result);
+      setImg(e.target);
     };
     reader.readAsDataURL(e.target.files[0]);
   };
@@ -20,7 +20,7 @@ const UploadImage = () => {
           <div className="relative">
             <Image
               className="object-cover h-32"
-              src={img}
+              src={img.result}
               alt="img"
               width={240}
               height={128}
