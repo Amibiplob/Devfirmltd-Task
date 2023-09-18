@@ -1,13 +1,39 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import InvoicePrint from "./InvoicePrint";
 import UploadImage from "./UploadImage";
+import Link from "next/link";
+import Product from "@/components/Product";
 
 const AddInvoice = () => {
   const date = new Date();
   const day = date.getDate();
-  const month = date.getMonth()+1;
+  const month = date.getMonth() + 1;
   const year = date.getFullYear();
-  const currentDate = `${year}-${'0'+month}-${day}`;
+  const currentDate = `${year}-${"0" + month}-${day}`;
+  const AllProduct = Product;
+  const [productType, setProductType] = useState<any>([]);
+  const [showDescription, setShowDescription] = useState<any>([]);
+  const [showPrice, setShowPrice] = useState<any>([]);
+  const [subtotal, setSubtotal] = useState<any>(0);
+  const selectProduct = (e: any) => {
+    AllProduct.map(({ name, type }) => {
+      if (e.target.value == name) {
+        setProductType(type);
+      }
+    });
+  };
+  const productDescription = (e: any) => {
+    productType.map(({ name, description, price }: any) => {
+      if (e.target.value == name) {
+        setShowDescription(description);
+        setShowPrice(price);
+        setSubtotal(subtotal+price);
+      }
+    });
+  };
+
+
   return (
     <div>
       <div className="my-6">
@@ -18,8 +44,11 @@ const AddInvoice = () => {
         <div className="grid grid-cols-3 gap-6">
           <div className="col-span-2">
             <label className="font-bold">Select</label>
-            <select className="w-full px-4 py-4 mt-5 rounded-full border-2 border-black opacity-40">
-              <option selected disabled>
+            <select
+              defaultValue={"default"}
+              className="w-full px-4 py-4 mt-5 rounded-full border-2 border-black opacity-40"
+            >
+              <option value="default" disabled>
                 Select Client
               </option>
               <option value="01">01</option>
@@ -37,15 +66,19 @@ const AddInvoice = () => {
           <div>
             <label className="font-bold">Invoice Date</label>
             <input
-              type="date" defaultValue={currentDate}
+              type="date"
+              defaultValue={currentDate}
               className="w-full px-4 py-4 mt-5 rounded-full border-2 border-black opacity-40"
             />
           </div>
 
           <div>
             <label className="font-bold">Trip</label>
-            <select className="w-full px-4 py-4 mt-5 rounded-full border-2 border-black opacity-40">
-              <option selected disabled>
+            <select
+              defaultValue={"default"}
+              className="w-full px-4 py-4 mt-5 rounded-full border-2 border-black opacity-40"
+            >
+              <option value="default" disabled>
                 Select Trip
               </option>
               <option value="T10">T10</option>
@@ -77,41 +110,41 @@ const AddInvoice = () => {
         <div className="grid grid-cols-3 gap-x-40 mb-3 px-7">
           <div className="grid grid-cols-3 gap-6 col-span-2 font-bold">
             <div className="">
-              <select className="w-full px-4 py-4 mt-5 rounded-xl border-2 border-black opacity-40">
-                <option selected disabled>
-                  Select Client
+              <select
+                onChange={(e) => selectProduct(e)}
+                defaultValue={"default"}
+                className="w-full px-4 py-4 mt-5 rounded-xl border-2 border-black opacity-40"
+              >
+                <option value="default" disabled>
+                  Select Product Type
                 </option>
-                <option value="01">01</option>
-                <option value="02">02</option>
-                <option value="03">03</option>
-                <option value="04">04</option>
-                <option value="05">05</option>
-                <option value="06">06</option>
-                <option value="07">07</option>
-                <option value="08">08</option>
-                <option value="09">09</option>
-                <option value="10">10</option>
+                {AllProduct.map(({ name }) => (
+                  <option key={name} value={name}>
+                    {name}
+                  </option>
+                ))}
               </select>
             </div>
             <div className="">
-              <select className="w-full px-4 py-4 mt-5 rounded-xl border-2 border-black opacity-40">
-                <option selected disabled>
-                  Select Client
+              <select
+                onChange={(e) => productDescription(e)}
+                defaultValue={"default"}
+                className="w-full px-4 py-4 mt-5 rounded-xl border-2 border-black opacity-40"
+              >
+                <option value="default" disabled>
+                  Select Product
                 </option>
-                <option value="01">01</option>
-                <option value="02">02</option>
-                <option value="03">03</option>
-                <option value="04">04</option>
-                <option value="05">05</option>
-                <option value="06">06</option>
-                <option value="07">07</option>
-                <option value="08">08</option>
-                <option value="09">09</option>
-                <option value="10">10</option>
+                {productType.map(({ name }: any, index: any) => (
+                  <option key={index} value={name}>
+                    {name}
+                  </option>
+                ))}
               </select>
             </div>
             <div className="">
               <input
+                readOnly
+                defaultValue={showDescription}
                 className="w-full px-4 py-4 mt-5 rounded-xl border-2 border-black opacity-40"
                 type="text"
               />
@@ -119,6 +152,8 @@ const AddInvoice = () => {
           </div>
           <div className="flex gap-2 items-center">
             <input
+              readOnly
+              defaultValue={showPrice}
               className="w-full px-4 py-5 mt-5 rounded-xl border-2 border-black opacity-40"
               type="text"
             />
@@ -158,11 +193,11 @@ const AddInvoice = () => {
         <div className="flex flex-col items-end gap-5 font-bold my-6 mr-20">
           <div className="flex w-52 text-right">
             <h1 className="w-1/2 opacity-80">Subtotal :</h1>
-            <h1 className="w-1/2 opacity-50">00000000</h1>
+            <h1 className="w-1/2 opacity-50">{subtotal}</h1>
           </div>
           <div className="flex w-52 text-right">
             <h1 className="w-1/2 opacity-80">TVA :</h1>
-            <h1 className="w-1/2 opacity-50">00000</h1>
+            <h1 className="w-1/2 opacity-50">{subtotal/10}</h1>
           </div>
         </div>
         <hr />
@@ -171,9 +206,12 @@ const AddInvoice = () => {
             <button className="bg-indigo-600 px-14 py-3 rounded-full text-white">
               Save
             </button>
-            <button className="text-black opacity-70 border-2 px-14 py-3 rounded-full">
+            <Link
+              href="/"
+              className="text-black opacity-70 border-2 px-14 py-3 rounded-full"
+            >
               Cancel
-            </button>
+            </Link>
             <InvoicePrint />
           </div>
           <div className="flex w-52 text-right font-bold text-indigo-600">

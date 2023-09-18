@@ -2,30 +2,38 @@ import React from "react";
 
 const Sidebar = () => {
   const sidebarItems = [
-    "Dashboard",
-    "Reservations",
-    "Trips",
-    "Invoices",
-    "Planes",
-    "Amenities",
-    "Contacts",
-    "Team",
-    "Crew Members",
-    "Files",
-    "Messages",
-    "Calender",
-    "Setting",
-    "Logout",
+    { name: "Dashboard" },
+    { name: "Reservations" },
+    { name: "Trips" },
+    {
+      name: "Invoices",
+      className:
+        "flex items-center p-5 lg:p-9 rounded-l-full lg:self-end text-white opacity-70 lg:w-3/4 h-14 bg-indigo-500",
+    },
+    { name: "Planes" },
+    { name: "Amenities" },
+    { name: "Contacts" },
+    { name: "Team" },
+    { name: "Crew Members" },
+    { name: "Files" },
+    { name: "Messages" },
+    { name: "Calender" },
+    { name: "Setting" },
+    { name: "Logout" },
   ];
   return (
-    <div className="flex flex-col bg-indigo-600 items-stretch text-left py-12 rounded-3xl">
+    <div className="flex flex-col gap-1 bg-indigo-600 items-stretch text-left py-12 rounded-3xl">
       <h1 className="self-center text-4xl text-white opacity-70 mb-10">Logo</h1>
-      {sidebarItems.map((item, i) => (
+      {sidebarItems.map(({ name, className }, index) => (
         <h1
-          key={i}
-          className="flex items-center pl-5 lg:pl-10 rounded-l-full lg:self-end text-white opacity-70 lg:w-3/4 h-14 hover:bg-indigo-400"
+          key={index}
+          className={
+            className
+              ? className
+              : "flex items-center p-5 lg:p-9 rounded-l-full lg:self-end text-white opacity-70 lg:w-3/4 h-14 hover:bg-indigo-500"
+          }
         >
-          {item}
+          {name}
         </h1>
       ))}
     </div>
