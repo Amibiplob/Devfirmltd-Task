@@ -16,6 +16,82 @@ const AddInvoice = () => {
   const [showDescription, setShowDescription] = useState<any>([]);
   const [showPrice, setShowPrice] = useState<any>([]);
   const [subtotal, setSubtotal] = useState<any>(0);
+  const AddProduct = (
+    <>
+      <div className="grid grid-cols-3 gap-x-40 mb-3 px-7">
+        <div className="grid grid-cols-3 gap-6 col-span-2 font-bold">
+          <div className="">
+            <select
+              onChange={(e) => selectProduct(e)}
+              defaultValue={"default"}
+              className="w-full px-4 py-4 mt-5 rounded-xl border-2 border-black opacity-40"
+            >
+              <option value="default" disabled>
+                Select Product Type
+              </option>
+              {AllProduct.map(({ name }) => (
+                <option key={name} value={name}>
+                  {name}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div className="">
+            <select
+              onChange={(e) => productDescription(e)}
+              defaultValue={"default"}
+              className="w-full px-4 py-4 mt-5 rounded-xl border-2 border-black opacity-40"
+            >
+              <option value="default" disabled>
+                Select Product
+              </option>
+              {productType.map(({ name }: any, index: any) => (
+                <option key={index} value={name}>
+                  {name}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div className="">
+            <input
+              readOnly
+              defaultValue={showDescription}
+              className="w-full px-4 py-4 mt-5 rounded-xl border-2 border-black opacity-40"
+              type="text"
+            />
+          </div>
+        </div>
+        <div className="flex gap-2 items-center">
+          <input
+            readOnly
+            defaultValue={showPrice}
+            className="w-full px-4 py-5 mt-5 rounded-xl border-2 border-black opacity-40"
+            type="text"
+          />
+          <button onClick={() => setCount(count.slice(0, -1))}>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              className="w-14 h-14 text-red-500 bg-red-100 rounded-lg p-3 mt-5"
+            >
+              <path
+                fillRule="evenodd"
+                d="M16.5 4.478v.227a48.816 48.816 0 013.878.512.75.75 0 11-.256 1.478l-.209-.035-1.005 13.07a3 3 0 01-2.991 2.77H8.084a3 3 0 01-2.991-2.77L4.087 6.66l-.209.035a.75.75 0 01-.256-1.478A48.567 48.567 0 017.5 4.705v-.227c0-1.564 1.213-2.9 2.816-2.951a52.662 52.662 0 013.369 0c1.603.051 2.815 1.387 2.815 2.951zm-6.136-1.452a51.196 51.196 0 013.273 0C14.39 3.05 15 3.684 15 4.478v.113a49.488 49.488 0 00-6 0v-.113c0-.794.609-1.428 1.364-1.452zm-.355 5.945a.75.75 0 10-1.5.058l.347 9a.75.75 0 101.499-.058l-.346-9zm5.48.058a.75.75 0 10-1.498-.058l-.347 9a.75.75 0 001.5.058l.345-9z"
+                clipRule="evenodd"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </>
+  );
+  const [count, setCount] = useState<any>([1]);
+  const ProductCount = (num: any) => {
+    let array = [...count, num];
+    setCount(array);
+  };
+
   const selectProduct = (e: any) => {
     AllProduct.map(({ name, type }) => {
       if (e.target.value == name) {
@@ -28,11 +104,10 @@ const AddInvoice = () => {
       if (e.target.value == name) {
         setShowDescription(description);
         setShowPrice(price);
-        setSubtotal(subtotal+price);
+        setSubtotal(subtotal + price);
       }
     });
   };
-
 
   return (
     <div>
@@ -107,71 +182,13 @@ const AddInvoice = () => {
           <h1>Total</h1>
         </div>
         <hr />
-        <div className="grid grid-cols-3 gap-x-40 mb-3 px-7">
-          <div className="grid grid-cols-3 gap-6 col-span-2 font-bold">
-            <div className="">
-              <select
-                onChange={(e) => selectProduct(e)}
-                defaultValue={"default"}
-                className="w-full px-4 py-4 mt-5 rounded-xl border-2 border-black opacity-40"
-              >
-                <option value="default" disabled>
-                  Select Product Type
-                </option>
-                {AllProduct.map(({ name }) => (
-                  <option key={name} value={name}>
-                    {name}
-                  </option>
-                ))}
-              </select>
-            </div>
-            <div className="">
-              <select
-                onChange={(e) => productDescription(e)}
-                defaultValue={"default"}
-                className="w-full px-4 py-4 mt-5 rounded-xl border-2 border-black opacity-40"
-              >
-                <option value="default" disabled>
-                  Select Product
-                </option>
-                {productType.map(({ name }: any, index: any) => (
-                  <option key={index} value={name}>
-                    {name}
-                  </option>
-                ))}
-              </select>
-            </div>
-            <div className="">
-              <input
-                readOnly
-                defaultValue={showDescription}
-                className="w-full px-4 py-4 mt-5 rounded-xl border-2 border-black opacity-40"
-                type="text"
-              />
-            </div>
-          </div>
-          <div className="flex gap-2 items-center">
-            <input
-              readOnly
-              defaultValue={showPrice}
-              className="w-full px-4 py-5 mt-5 rounded-xl border-2 border-black opacity-40"
-              type="text"
-            />
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              className="w-16 h-16 text-red-500 bg-red-100 rounded-lg p-2 mt-5"
-            >
-              <path
-                fillRule="evenodd"
-                d="M16.5 4.478v.227a48.816 48.816 0 013.878.512.75.75 0 11-.256 1.478l-.209-.035-1.005 13.07a3 3 0 01-2.991 2.77H8.084a3 3 0 01-2.991-2.77L4.087 6.66l-.209.035a.75.75 0 01-.256-1.478A48.567 48.567 0 017.5 4.705v-.227c0-1.564 1.213-2.9 2.816-2.951a52.662 52.662 0 013.369 0c1.603.051 2.815 1.387 2.815 2.951zm-6.136-1.452a51.196 51.196 0 013.273 0C14.39 3.05 15 3.684 15 4.478v.113a49.488 49.488 0 00-6 0v-.113c0-.794.609-1.428 1.364-1.452zm-.355 5.945a.75.75 0 10-1.5.058l.347 9a.75.75 0 101.499-.058l-.346-9zm5.48.058a.75.75 0 10-1.498-.058l-.347 9a.75.75 0 001.5.058l.345-9z"
-                clipRule="evenodd"
-              />
-            </svg>
-          </div>
-        </div>
-        <div className="flex gap-1 text-indigo-600 font-bold px-7 mb-5">
+        {count.map((index: any) => (
+          <div key={index}>{AddProduct}</div>
+        ))}
+        <button
+          onClick={() => ProductCount(count.length + 1)}
+          className="flex gap-1 text-indigo-600 hover:bg-indigo-50 font-bold px-7 mb-5"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -188,7 +205,7 @@ const AddInvoice = () => {
           </svg>
 
           <h1>Add Product</h1>
-        </div>
+        </button>
         <hr />
         <div className="flex flex-col items-end gap-5 font-bold my-6 mr-20">
           <div className="flex w-52 text-right">
@@ -197,7 +214,7 @@ const AddInvoice = () => {
           </div>
           <div className="flex w-52 text-right">
             <h1 className="w-1/2 opacity-80">TVA :</h1>
-            <h1 className="w-1/2 opacity-50">{subtotal/10}</h1>
+            <h1 className="w-1/2 opacity-50">{subtotal / 10}</h1>
           </div>
         </div>
         <hr />
@@ -208,7 +225,7 @@ const AddInvoice = () => {
             </button>
             <Link
               href="/"
-              className="text-black opacity-70 border-2 px-14 py-3 rounded-full"
+              className="text-black opacity-70 border-2 px-14 py-6 rounded-full"
             >
               Cancel
             </Link>
@@ -216,7 +233,7 @@ const AddInvoice = () => {
           </div>
           <div className="flex w-52 text-right font-bold text-indigo-600">
             <h1 className="w-1/2">Total :</h1>
-            <h1 className="w-1/2">00000</h1>
+            <h1 className="w-1/2">{subtotal + subtotal}</h1>
           </div>
         </div>
       </div>
