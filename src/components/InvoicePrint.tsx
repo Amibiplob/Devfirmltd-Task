@@ -1,17 +1,17 @@
-'use client'
+"use client";
 
 const InvoicePrint = () => {
-     const print = () => {
-         window.print();
-     };
-    return (
-      <button
-        onClick={print}
-        className="bg-indigo-600 px-16 py-3 rounded-full text-white"
-      >
-        Download Invoice
-      </button>
-    );
+  const print = () => {
+    window.print();
+  };
+  return (
+    <button
+      onClick={print}
+      className="bg-Primary px-16 py-3 rounded-full text-white"
+    >
+      Download Invoice
+    </button>
+  );
 };
 
 export default InvoicePrint;

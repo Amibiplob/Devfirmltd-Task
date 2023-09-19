@@ -4,6 +4,7 @@ import InvoicePrint from "./InvoicePrint";
 import UploadImage from "./UploadImage";
 import Link from "next/link";
 import Product from "@/components/Product";
+import { headers } from "next/dist/client/components/headers";
 
 const AddInvoice = () => {
   const date = new Date();
@@ -108,6 +109,34 @@ const AddInvoice = () => {
       }
     });
   };
+  const [invoiceNo, setInvoiceNo] = useState<any>("");
+  let [invoiceDate, setInvoiceDate] = useState<any>("");
+  const [tripNo, setTripNo] = useState<any>("");
+
+  const AddInvoices = async () => {
+    if (invoiceDate == "") {
+      invoiceDate = currentDate;
+    }
+    if (invoiceNo && invoiceDate && tripNo && subtotal) {
+      let data = {
+        InvoiceNo: invoiceNo,
+        Trip: tripNo,
+        InvDate: invoiceDate,
+        InvAmount: subtotal + subtotal / 10,
+        BalDue: subtotal + subtotal / 10,
+        PaymentMethod: "jcb",
+        DueDate: invoiceDate,
+        Status: "Paid",
+      };
+
+      let response = await fetch(`${window.location.origin}/submit-form`, {
+        method: "POST",
+        body: JSON.stringify({ data }),
+      });
+      response = await response.json();
+    window.alert(response)
+    }
+  };
 
   return (
     <div>
@@ -120,27 +149,29 @@ const AddInvoice = () => {
           <div className="col-span-2">
             <label className="font-bold">Select</label>
             <select
+              onChange={(e) => setInvoiceNo(e.target.value)}
               defaultValue={"default"}
               className="w-full px-4 py-4 mt-5 rounded-full border-2 border-black opacity-40"
             >
               <option value="default" disabled>
                 Select Client
               </option>
-              <option value="01">01</option>
-              <option value="02">02</option>
-              <option value="03">03</option>
-              <option value="04">04</option>
-              <option value="05">05</option>
-              <option value="06">06</option>
-              <option value="07">07</option>
-              <option value="08">08</option>
-              <option value="09">09</option>
-              <option value="10">10</option>
+              <option value="11">11</option>
+              <option value="12">12</option>
+              <option value="13">13</option>
+              <option value="14">14</option>
+              <option value="15">15</option>
+              <option value="16">16</option>
+              <option value="17">17</option>
+              <option value="18">18</option>
+              <option value="19">19</option>
+              <option value="20">20</option>
             </select>
           </div>
           <div>
             <label className="font-bold">Invoice Date</label>
             <input
+              onChange={(e) => setInvoiceDate(e.target.value)}
               type="date"
               defaultValue={currentDate}
               className="w-full px-4 py-4 mt-5 rounded-full border-2 border-black opacity-40"
@@ -150,6 +181,7 @@ const AddInvoice = () => {
           <div>
             <label className="font-bold">Trip</label>
             <select
+              onChange={(e) => setTripNo(e.target.value)}
               defaultValue={"default"}
               className="w-full px-4 py-4 mt-5 rounded-full border-2 border-black opacity-40"
             >
@@ -187,7 +219,7 @@ const AddInvoice = () => {
         ))}
         <button
           onClick={() => ProductCount(count.length + 1)}
-          className="flex gap-1 text-indigo-600 hover:bg-indigo-50 font-bold px-7 mb-5"
+          className="flex gap-1 text-Primary hover:bg-indigo-50 font-bold px-7 mb-5"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -220,9 +252,12 @@ const AddInvoice = () => {
         <hr />
         <div className="flex justify-between gap-5 items-center mb-3 pl-7 mr-20 my-9">
           <div className="flex justify-between gap-6 font-bold w-1/2">
-            <button className="bg-indigo-600 px-14 py-3 rounded-full text-white">
+            <Link href='/'
+              onClick={AddInvoices}
+              className="bg-Primary px-14 py-6 rounded-full text-white"
+            >
               Save
-            </button>
+            </Link>
             <Link
               href="/"
               className="text-black opacity-70 border-2 px-14 py-6 rounded-full"
@@ -231,9 +266,9 @@ const AddInvoice = () => {
             </Link>
             <InvoicePrint />
           </div>
-          <div className="flex w-52 text-right font-bold text-indigo-600">
+          <div className="flex w-52 text-right font-bold text-Primary">
             <h1 className="w-1/2">Total :</h1>
-            <h1 className="w-1/2">{subtotal + subtotal}</h1>
+            <h1 className="w-1/2">{subtotal + subtotal / 10}</h1>
           </div>
         </div>
       </div>
