@@ -4,7 +4,7 @@ import InvoicePrint from "./InvoicePrint";
 import UploadImage from "./UploadImage";
 import Link from "next/link";
 import Product from "@/components/Product";
-import { headers } from "next/dist/client/components/headers";
+import { useRouter } from "next/navigation";
 
 const AddInvoice = () => {
   const date = new Date();
@@ -112,7 +112,7 @@ const AddInvoice = () => {
   const [invoiceNo, setInvoiceNo] = useState<any>("");
   let [invoiceDate, setInvoiceDate] = useState<any>("");
   const [tripNo, setTripNo] = useState<any>("");
-
+  const router = useRouter();
   const AddInvoices = async () => {
     if (invoiceDate == "") {
       invoiceDate = currentDate;
@@ -134,8 +134,10 @@ const AddInvoice = () => {
         body: JSON.stringify({ data }),
       });
       response = await response.json();
-    window.alert(response)
-    }
+      window.alert(response);
+      router.push("/")
+    } else window.alert("Give All Option");
+
   };
 
   return (
@@ -252,12 +254,12 @@ const AddInvoice = () => {
         <hr />
         <div className="flex justify-between gap-5 items-center mb-3 pl-7 mr-20 my-9">
           <div className="flex justify-between gap-6 font-bold w-1/2">
-            <Link href='/'
+            <button
               onClick={AddInvoices}
-              className="bg-Primary px-14 py-6 rounded-full text-white"
+              className="bg-Primary px-14 py-3 rounded-full text-white"
             >
               Save
-            </Link>
+            </button>
             <Link
               href="/"
               className="text-black opacity-70 border-2 px-14 py-6 rounded-full"

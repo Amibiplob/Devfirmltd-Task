@@ -18,5 +18,5 @@ export const POST = async (request: Request) => {
  let fakeData = fakeDB;
   const res = await request.json()
   fakeData.push(res.data)
-console.log(fakeData)
+  return NextResponse.json("Product Added Successfully");
 }
