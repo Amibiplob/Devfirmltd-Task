@@ -7,7 +7,7 @@ const InvoicePrint = () => {
   return (
     <button
       onClick={print}
-      className="bg-Primary px-16 py-3 rounded-full text-white"
+      className="bg-Primary px-16 py-3 rounded-full text-black"
     >
       Download Invoice
     </button>

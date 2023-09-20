@@ -221,7 +221,7 @@ const AddInvoice = () => {
         ))}
         <button
           onClick={() => ProductCount(count.length + 1)}
-          className="flex gap-1 text-Primary hover:bg-indigo-50 font-bold px-7 mb-5"
+          className="flex gap-1 text-black hover:bg-lime-200 font-bold px-7 mb-5"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -256,7 +256,7 @@ const AddInvoice = () => {
           <div className="flex justify-between gap-6 font-bold w-1/2">
             <button
               onClick={AddInvoices}
-              className="bg-Primary px-14 py-3 rounded-full text-white"
+              className="bg-Primary px-14 py-3 rounded-full text-black"
             >
               Save
             </button>
@@ -268,7 +268,7 @@ const AddInvoice = () => {
             </Link>
             <InvoicePrint />
           </div>
-          <div className="flex w-52 text-right font-bold text-Primary">
+          <div className="flex w-52 text-right font-bold text-black">
             <h1 className="w-1/2">Total :</h1>
             <h1 className="w-1/2">{subtotal + subtotal / 10}</h1>
           </div>
