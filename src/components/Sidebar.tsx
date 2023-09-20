@@ -8,7 +8,7 @@ const Sidebar = () => {
     {
       name: "Invoices",
       className:
-        "flex items-center p-5 lg:p-9 rounded-l-full lg:self-end text-white opacity-70 lg:w-3/4 h-14 bg-indigo-500",
+        "flex items-center p-5 lg:p-9 rounded-l-full lg:self-end text-black lg:w-3/4 h-14 bg-lime-200",
     },
     { name: "Planes" },
     { name: "Amenities" },
@@ -30,7 +30,7 @@ const Sidebar = () => {
           className={
             className
               ? className
-              : "flex items-center p-5 lg:p-9 rounded-l-full lg:self-end  opacity-70 lg:w-3/4 h-14 hover:bg-lime-200"
+              : "flex items-center p-5 lg:p-9 rounded-l-full lg:self-end lg:w-3/4 h-14 hover:bg-lime-200"
           }
         >
           {name}
